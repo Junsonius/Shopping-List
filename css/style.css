@@ -1,7 +1,6 @@
 :root {
     --cor-texto: rgb(218, 218, 218);
     
-
 }
 
 .center {
@@ -14,21 +13,26 @@
     flex-direction: row;
 }
 
+
 .form-add{
     display: flex;
     flex-direction: column;
     color: var(--cor-texto);
     padding-top: 15px;
     font-size: 20px;
+    align-items: center;
 }
 
 .form-add > input[type=text] {
-    margin: 15px 56px;
+    margin: 15px 0;
     border-radius: 8px;
     height: 20px;
+    width: 50vw;
+    max-width: 200px;
+    
 }
 
-.form-add > input[type=submit] {
+.form-add > input[type=button] {
     margin: 10px auto;
     font-weight: 800;
     color: var(--cor-texto);
@@ -36,8 +40,24 @@
     border-radius: 10px;
     height: 35px;
     width: 150px;
-    border: 1px solid white
-    
+    border: 1px solid white;
+    transition-duration: 0.4s;
+
+}
+
+.form-add > input[type=button]:hover{
+    color: #2b97da;
+    background-color: white;
+    border: 1px solid #2b97da;
+
+}
+.form-add > input[type=button]:active{
+    background-color: #1aa7ff;
+    color: var(--cor-texto);
+    border: 1px solid white;
+
+
+
 }
 
 .item input{
@@ -138,25 +158,7 @@ footer {
         width: 90vw;
     
     }
-    
-    .form-add > input[type=text] {
-    margin: 15px 300px;
-    border-radius: 8px;
-    height: 20px;
-    
-    }
-    .form-add > input[type=submit] {
-        margin: 10px auto;
-        font-weight: 800;
-        color: var(--cor-texto);
-        background-color: #2b97da;
-        border-radius: 10px;
-        height: 35px;
-        width: 150px;
-        border: 1px solid white
-        
-    }
-    
+ 
 
     footer {
         
