@@ -23,29 +23,38 @@
                 <label for="add-item">Adicionar Produto</label>
                 <input type="text" id="add-item" name="add-item">
                 <label for="add-qnt">Quantidade</label>
-                <input type="text" id="add-qnt" name="add-qnt">
+                <div class="qnt-unit-container">
+                    <input type="number" id="add-qnt" name="add-qnt">
+                    <label class="unitlabel" for="option"></label>
+                    <select id="option">
+                        <option value="unidade">unidades</option>
+                        <option value= "kg">kg</option>     
+                        <option value="g">g</option>     
+                        <option value="l">l</option>        
+                        <option value="ml">ml</option>      
+                    </select>
+                </div>
                 <input type="button" id="add-btn" value="Adicionar">
-
+                
             </form>
             <div class="container main-list">
                 <ul id="lista-principal" class="lista-principal">
-                    <ul class="item item-lista-fundo center">
-                        <li><input type="checkbox" name="Comprado" checked="checked"></li>
+                    <ul class='item item-lista-fundo center'>
+                        <li><input type='checkbox' name='Comprado' checked='checked'></li>
                         <li>Banana</li>
-                        <li class="qnt">quantidade: 2</li>
-                        
+                        <li class='qnt'>quantidade: 2</li>                      
                     </ul>
                     
-                    <ul class="item item-lista-fundo center">
-                        <li><input type="checkbox" name="Comprado"></li>
+                    <ul class='item item-lista-fundo center'>
+                        <li><input type='checkbox' name='Comprado'></li>
                         <li>maça</li>
-                        <li class="qnt">quantidade: 5</li>
+                        <li class='qnt'>quantidade: 5</li>
                         
                     </ul>
-                    <ul class="item item-lista-fundo center">
-                        <li><input type="checkbox" name="Comprado"></li>
+                    <ul class='item item-lista-fundo center'>
+                        <li><input type='checkbox' name='Comprado'></li>
                         <li>arroz</li>
-                        <li class="qnt">quantidade: 1kg</li>
+                        <li class='qnt'>quantidade: 1kg</li>
                         
                     </ul>
                     <ul class="item item-lista-fundo center">

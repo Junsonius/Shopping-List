@@ -56,6 +56,29 @@ main {
     
 }
 
+.qnt-unit-container input[type=number]{
+    
+        margin: 15px 0;
+        border-radius: 8px 0 0 8px;
+        height: 20px;
+        width: 25vw;
+        max-width: 50px;
+        text-align: center;
+        border: 0.5px solid white
+    }
+
+select{
+    margin: 25px -5px;
+    padding-bottom: 2px;
+    border-radius: 0 8px 8px 0;
+    height: 24px;
+    width: 25vw;
+    max-width: 100px;
+    text-align: center;
+    font-size: 16px;
+    border: 0.5px solid white
+}
+
 .form-add > input[type=button] {
     margin: 10px auto;
     font-weight: 800;
@@ -137,6 +160,7 @@ li {
 .item-lista-fundo {
     height: 40px;
     width: 75vw;
+    max-width: 1000px;
     background-color: rgb(37, 37, 37);
     border-radius: 10px;
     
