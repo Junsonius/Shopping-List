@@ -12,23 +12,32 @@
 
     <title>Lista de Compras</title>
 </head>
-<body>    
+<body>   
         <header>
             <h1 class="cabecalho">Sua Lista de compras</h1>
         </header>
 
         <main class="conteudo-principal">
+
+            <form class="center form-add">
+                <label for="add-item">Adicionar Produto</label>
+                <input type="text" id="add-item" name="add-item">
+                <label for="add-qnt">Quantidade</label>
+                <input type="text" id="add-qnt" name="add-qnt">
+                <input type="submit" value="Adicionar">
+
+            </form>
             <div class="container main-list">
                 <ul class="lista-principal">
                     <ul class="item item-lista-fundo center">
-                        <li><input type="checkbox" name="Comprado"></li>
+                        <li><input type="checkbox" name="Comprado" checked="checked"></li>
                         <li>Banana</li>
                         <li class="qnt">quantidade: 2</li>
                         
                     </ul>
                     
                     <ul class="item item-lista-fundo center">
-                        <li ><input type="checkbox" name="Comprado"></li>
+                        <li><input type="checkbox" name="Comprado"></li>
                         <li>maça</li>
                         <li class="qnt">quantidade: 5</li>
                         

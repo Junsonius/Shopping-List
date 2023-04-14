@@ -14,11 +14,48 @@
     flex-direction: row;
 }
 
+.form-add{
+    display: flex;
+    flex-direction: column;
+    color: var(--cor-texto);
+    padding-top: 15px;
+    font-size: 20px;
+}
 
+.form-add > input[type=text] {
+    margin: 15px 56px;
+    border-radius: 8px;
+    height: 20px;
+}
+
+.form-add > input[type=submit] {
+    margin: 10px auto;
+    font-weight: 800;
+    color: var(--cor-texto);
+    background-color: #2b97da;
+    border-radius: 10px;
+    height: 35px;
+    width: 150px;
+    border: 1px solid white
+    
+}
+
+.item input{
+    height: 25px;
+    width: 25px;
+    clip-path: circle(46% at 50% 50%);
+}
+
+
+.item input:checked {
+    -webkit-appearance: none;
+    appearance: auto;
+    clip-path: circle(50% at 50% 50%);
+}
 p, li{
     margin-top: 7px;
     color: var(--cor-texto);
-    font-size: 16px;
+    font-size: 20px;
     overflow: hidden;
 }
 
@@ -37,10 +74,11 @@ body {
 }
 
 header {
-    height: 15vh;
+    height: 10vh;
     width: 100vw;
-    border: 3px solid black;
+    /*border: 3px solid black; */
 }
+
 
 main {
     height: 100vh;
@@ -54,13 +92,14 @@ footer {
     margin-top: auto;
     height: 10vh;
     width: 100vw;
-    border: 3px solid black;
+    /*border: 3px solid black; */
 }
 
 .item{
     display: flex;
     flex-direction: row;
-    align-self:auto
+    align-self:auto;
+    align-items: center;
 }
 
 .qnt{
@@ -82,8 +121,8 @@ footer {
 }
 
 .item-lista-fundo {
-    height: 30px;
-    width: 70vw;
+    height: 40px;
+    width: 75vw;
     background-color: rgb(37, 37, 37);
     border-radius: 10px;
     
@@ -100,6 +139,25 @@ footer {
     
     }
     
+    .form-add > input[type=text] {
+    margin: 15px 300px;
+    border-radius: 8px;
+    height: 20px;
+    
+    }
+    .form-add > input[type=submit] {
+        margin: 10px auto;
+        font-weight: 800;
+        color: var(--cor-texto);
+        background-color: #2b97da;
+        border-radius: 10px;
+        height: 35px;
+        width: 150px;
+        border: 1px solid white
+        
+    }
+    
+
     footer {
         
         width: 90vw;
