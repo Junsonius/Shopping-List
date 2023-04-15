@@ -20,9 +20,6 @@ function criarNovoItem (novoItem){
     let qntItem = novoItem.qnt
     let unitItem = novoItem.unit
 
-    if (qntItem == 1 && unitItem == "unidades"){
-        unitItem = "unidade"
-    }
 
     ul.setAttribute('class', 'item item-lista-fundo center');
     ul.innerHTML = `
@@ -31,7 +28,8 @@ function criarNovoItem (novoItem){
         <li id="${nomeItem}">${nomeItem}</li>
     </div>
     <div class="right-list-content">
-        <li id="qnt-${idItem}" class="qnt">${qntItem} ${unitItem}</li>
+        <li id="qnt-${idItem}" class="qnt">${qntItem}</li>
+        <li id="unit-type-${idItem}" class="unit-type">${unitItem}</li>
         <li><button id="modify-${idItem}" class="modify-item-btn"></button></li>
         <li><button id="delete-${idItem}" class="delete-item-btn"></button></li>
     </div>
@@ -43,16 +41,23 @@ document.getElementById("lista-principal").appendChild(ul)
 }
 
 function modifyItem() {
-    let modify = this.parentNode.previousElementSibling;
+    let modify = this.parentNode.previousElementSibling.previousElementSibling;
     let updatedQnt = modify.id
     console.log(updatedQnt)
-    document.getElementById(updatedQnt).innerHTML = `
+    document.getElementById(updatedQnt).innerHTML =`
     <div class="qnt-unit-container modify">
     
     <input type="number" class="modify-items" name="add-qnt" value="">
+    
+    `
+    let modifytype = this.parentNode;
+    let updatedtype = modifytype.id
+    console.log(updatedtype)
+    document.getElementById(updatedtype).innerHTML = `
+    <input type="number" class="modify-items" name="add-qnt" value="">
     <label class="unitlabel" for="option"></label>
     <select class="modify-items">
-        <option value="unidades">unidades</option>
+        <option value="un.">un.</option>
         <option value= "kg">kg</option>     
         <option value="g">g</option>     
         <option value="l">l</option>        
@@ -64,7 +69,7 @@ function modifyItem() {
 }
 
 function deleteItem () {
-    let deleteVar = this.parentNode.parentNode
+    let deleteVar = this.parentNode.parentNode.parentNode
     document.getElementById("lista-principal").removeChild(deleteVar)
 }
 
