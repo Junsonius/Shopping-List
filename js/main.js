@@ -16,6 +16,10 @@ function criarNovoItem (novoItem){
     let qntItem = novoItem.qnt
     let unitItem = novoItem.unit
 
+    if (qntItem == 1 && unitItem == "unidades"){
+        unitItem = "unidade"
+    }
+
     ul.setAttribute('class', 'item item-lista-fundo center');
     ul.innerHTML = `
     <ul class="item item-lista-fundo center">
@@ -39,6 +43,7 @@ document.getElementById("add-btn").addEventListener("click", () =>{
     const unitItem = document.getElementById("option").value;
     const novoItem = new produto(nomeItem, qntItem, unitItem);
     criarNovoItem(novoItem)
+    document.getElementById("add-item").value = "";
+    document.getElementById("add-qnt").value = "";
 })
 
-console.log(lista)

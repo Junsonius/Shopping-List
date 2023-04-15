@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-
-
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <title>Lista de Compras</title>
 </head>
 <body>   
@@ -18,16 +17,15 @@
         </header>
 
         <main class="conteudo-principal">
-
             <form class="center form-add">
                 <label for="add-item">Adicionar Produto</label>
-                <input type="text" id="add-item" name="add-item">
+                <input type="text" id="add-item" name="add-item" placeholder="Adicione um item">
                 <label for="add-qnt">Quantidade</label>
                 <div class="qnt-unit-container">
-                    <input type="number" id="add-qnt" name="add-qnt">
+                    <input type="number" id="add-qnt" name="add-qnt" placeholder="ex.123">
                     <label class="unitlabel" for="option"></label>
                     <select id="option">
-                        <option value="unidade">unidades</option>
+                        <option value="unidades">unidades</option>
                         <option value= "kg">kg</option>     
                         <option value="g">g</option>     
                         <option value="l">l</option>        
@@ -39,28 +37,6 @@
             </form>
             <div class="container main-list">
                 <ul id="lista-principal" class="lista-principal">
-                    <ul class='item item-lista-fundo center'>
-                        <li><input type='checkbox' name='Comprado' checked='checked'></li>
-                        <li>Banana</li>
-                        <li class='qnt'>quantidade: 2</li>                      
-                    </ul>
-                    
-                    <ul class='item item-lista-fundo center'>
-                        <li><input type='checkbox' name='Comprado'></li>
-                        <li>maça</li>
-                        <li class='qnt'>quantidade: 5</li>
-                        
-                    </ul>
-                    <ul class='item item-lista-fundo center'>
-                        <li><input type='checkbox' name='Comprado'></li>
-                        <li>arroz</li>
-                        <li class='qnt'>quantidade: 1kg</li>
-                        
-                    </ul>
-                    <ul class="item item-lista-fundo center">
-                        <li><input type="checkbox" name="Comprado"></li>
-                        <li>leite</li>
-                        <li class="qnt">quantidade: 4</li>
                         
                     </ul>
                 </ul>
