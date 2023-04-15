@@ -1,4 +1,5 @@
-function produto(item, qnt, unit) {
+function produto(id, item, qnt, unit) {
+    this.id = id;
     this.item = item;
     this.qnt = qnt;
     this.unit = unit
@@ -9,9 +10,12 @@ function adicionarItem (produto) {
     lista.push(produto)
 }
 
-function criarNovoItem (novoItem){
-    let ul = document.createElement('ul');
+let ul
 
+function criarNovoItem (novoItem){
+    ul = document.createElement('ul');
+
+    let idItem = novoItem.id
     let nomeItem = novoItem.item
     let qntItem = novoItem.qnt
     let unitItem = novoItem.unit
@@ -22,10 +26,11 @@ function criarNovoItem (novoItem){
 
     ul.setAttribute('class', 'item item-lista-fundo center');
     ul.innerHTML = `
-    <ul class="item item-lista-fundo center">
-    <li><input type="checkbox" name="comprado"></li>
-    <li>${nomeItem}</li>
-    <li class="qnt">quantidade: ${qntItem} ${unitItem}</li>
+    <li><input id="check-${nomeItem}" type="checkbox" name="comprado"></li>
+    <li id="${nomeItem}">${nomeItem}</li>
+    <li class="qnt">${qntItem} ${unitItem}</li>
+    <li><button id="modify-${idItem}" class="modify-item-btn"></button></li>
+    <li><button id="delete-${idItem}" class="delete-item-btn"></button></li>    
 
     </ul> 
     `;
@@ -34,16 +39,27 @@ document.getElementById("lista-principal").appendChild(ul)
 
 }
 
+function modifyItem(id) {
 
-let lista = document.getElementsByClassName("item");
+}
+
+function deleteItem () {
+    let deleteVar = this.parentNode.parentNode
+    document.getElementById("lista-principal").removeChild(deleteVar)
+}
+
+let lista = []
+lista = document.getElementsByClassName("item");
 
 document.getElementById("add-btn").addEventListener("click", () =>{
+    const idItem = Math.floor(Math.random()*1000)
     const nomeItem = document.getElementById("add-item").value;
     const qntItem = document.getElementById("add-qnt").value;
     const unitItem = document.getElementById("option").value;
-    const novoItem = new produto(nomeItem, qntItem, unitItem);
+    const novoItem = new produto(idItem, nomeItem, qntItem, unitItem);
+    
     criarNovoItem(novoItem)
     document.getElementById("add-item").value = "";
     document.getElementById("add-qnt").value = "";
+    document.querySelector("#delete-" + idItem).addEventListener('click', deleteItem)
 })
-
