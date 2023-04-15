@@ -20,18 +20,20 @@
             <form class="center form-add">
                 <h2>Olá, bem vindo à sua lista de compras!! <br><br></h2>
                 <label for="add-item">Adicione abaixo o produto que você precisa</label>
-                <input type="text" id="add-item" name="add-item" placeholder="Ex. arroz, feijão, carne">
-                <label for="add-qnt">E agora informe a quantidade desse item</label>
-                <div class="qnt-unit-container">
-                    <input type="number" id="add-qnt" name="add-qnt" placeholder="ex.123">
-                    <label class="unitlabel" for="option"></label>
-                    <select id="option">
-                        <option value="un.">un.</option>
-                        <option value= "kg">kg</option>     
-                        <option value="g">g</option>     
-                        <option value="l">l</option>        
-                        <option value="ml">ml</option>      
-                    </select>
+                <div class="item-bar">
+                    <input type="text" id="add-item" name="add-item" placeholder="Ex. arroz, feijão, carne">
+                    <label for="add-qnt"></label>
+                    <div class="qnt-unit-container">
+                        <input type="number" id="add-qnt" name="add-qnt" placeholder="123">
+                        <label class="unitlabel" for="option"></label>
+                        <select id="option">
+                            <option value="un.">un.</option>
+                            <option value= "kg">kg</option>     
+                            <option value="g">g</option>     
+                            <option value="l">l</option>        
+                            <option value="ml">ml</option>      
+                        </select>
+                    </div>
                 </div>
                 
                 <input type="button" id="add-btn" value="Adicionar">
@@ -45,9 +47,9 @@
                             <li id="orange">Orangess</li>
                         </div>
                         <div class="right-list-content"><li class="qnt">2 un.</li> 
-                        <li><button id="modify-orange" class="modify-item-btn"></button></li>
+                        <li><button id="modify-orange" class="modify-item-btn modify-btn">Editar</button></li>
                         <li>
-                            <button id="delete-orange" class="delete-item-btn"></button></li>          
+                            <button id="delete-orange" class="delete-item-btn modify-btn"></button></li>          
                         </ul>     
         </main>
 

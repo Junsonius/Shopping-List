@@ -30,8 +30,8 @@ function criarNovoItem (novoItem){
     <div class="right-list-content">
         <li id="qnt-${idItem}" class="qnt">${qntItem}</li>
         <li id="unit-type-${idItem}" class="unit-type">${unitItem}</li>
-        <li><button id="modify-${idItem}" class="modify-item-btn"></button></li>
-        <li><button id="delete-${idItem}" class="delete-item-btn"></button></li>
+        <li><button id="modify-${idItem}" class="modify-item-btn modify-btn">Editar</button></li>
+        <li><button id="delete-${idItem}" class="delete-item-btn modify-btn">Remover</button></li>
     </div>
 </ul> 
 `;

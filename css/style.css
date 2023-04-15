@@ -3,6 +3,13 @@
     
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
 header, main, footer {
     background-color: rgba(0, 0, 0, 0.6);
     
@@ -52,29 +59,37 @@ main {
     align-items: center;
 }
 
-.form-add > input[type=text] {
+.item-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#add-item {
     margin: 15px 0;
     border-radius: 8px;
     height: 20px;
     width: 50vw;
     max-width: 200px;
     text-align: center;
-    
+    border: 0.5px solid white
 }
 
 input::placeholder {
     text-align: center;
 }
 
-.qnt-unit-container input[type=number]{
-    
+#add-qnt {
+
         margin: 15px 0;
-        border-radius: 8px 0 0 8px;
+        border-radius: 8px 0 0 8px; 
         height: 20px;
-        width: 20vw;
-        max-width: 75px;
+        width: 12vw;
+        max-width: 30px;
         text-align: center;
-        border: 0.5px solid white
+        border: 0.5px solid white;
+        padding-left: 10px;
+        
     }
 
 select{
@@ -82,8 +97,8 @@ select{
     padding-bottom: 2px;
     border-radius: 0 8px 8px 0;
     height: 24px;
-    width: 30vw;
-    max-width: 125px;
+    width: 15vw;
+    max-width: 50px;
     text-align: center;
     font-size: 16px;
     border: 0.5px solid white
@@ -119,8 +134,6 @@ select{
         display: flex;
         flex-direction: row;
 }
-
-
 
 p, li{
     
@@ -166,10 +179,17 @@ li {
 .modify-items {
     width: 90px;
     margin: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: var(--cor-texto);
+    font-size: 20px;
+    border-radius: 3px;
+    
 }
 
 .modify input[type=number] {
-    width: 20px;
+    width: 45px;
+    padding: 3px 6px;
 }
 
 
@@ -208,20 +228,32 @@ li {
 }
 
 .delete-item-btn {
-    margin-top: 3px;
-    width: 20px;
-    height: 20px;
-    background-image: url(../assets/delete-icon.png);
-    background-size:contain;
-    background-color: red;
+    
+    height: 40px;
+    width: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: var(--cor-texto);
+    border-radius: 3px;
+    background-image: url(../assets/delete-icon.png.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+
+
+
 }
 .modify-item-btn {
-    margin-top: 3px;
-    width: 20px;
-    height: 20px;
-    background-image: url(../assets/modify-icon.png);
-    background-size:contain;
-    background-color: yellow;
+    height: 40px;
+    width: 47px;
+    background-color: rgba(0, 0, 0, 0.1) ;
+    border: none;
+    color: var(--cor-texto);
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.modify-btn:hover {
+    border: 1px solid rgba(255, 255, 255, 0.5) ;
 }
 
 footer {
