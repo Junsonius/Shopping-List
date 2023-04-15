@@ -19,6 +19,7 @@ body {
     align-items: center;
     flex-direction: column;
     font-family: "montserrat", sans-serif;
+  
 }
 
 header {
@@ -120,6 +121,7 @@ select{
 }
 
 
+
 p, li{
     
     color: var(--cor-texto);
@@ -138,6 +140,8 @@ li {
     flex-direction: row;
     align-self:auto;
     align-items: center;
+    justify-content: space-between;
+  
 }
 
 
@@ -154,11 +158,19 @@ li {
     clip-path: circle(50% at 50% 50%);
 }
 
-.qnt{
-    margin-left: auto;
-    overflow: hidden;
+.modify{
+   display: flex;
+   align-items: center;
 }
 
+.modify-items {
+    width: 75px;
+    margin: 0;
+}
+
+.modify input[type=number] {
+    width: 25px;
+}
 
 
 .lista-principal {
@@ -175,6 +187,16 @@ li {
     background-color: rgb(143,113,198);
     border-radius: 10px;
     
+}
+
+.left-list-content {
+    display: flex;
+    align-items: center;
+}
+
+.right-list-content {
+    display: flex;
+    align-items: center;
 }
 
 .delete-item-btn {

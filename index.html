@@ -18,9 +18,10 @@
 
         <main class="conteudo-principal">
             <form class="center form-add">
-                <label for="add-item">Adicionar Produto</label>
-                <input type="text" id="add-item" name="add-item" placeholder="Adicione um item">
-                <label for="add-qnt">Quantidade</label>
+                <h2>Olá, bem vindo à sua lista de compras!! <br><br></h2>
+                <label for="add-item">Adicione abaixo o produto que você precisa</label>
+                <input type="text" id="add-item" name="add-item" placeholder="Ex. arroz, feijão, carne">
+                <label for="add-qnt">Coloque abaixo a quantidade</label>
                 <div class="qnt-unit-container">
                     <input type="number" id="add-qnt" name="add-qnt" placeholder="ex.123">
                     <label class="unitlabel" for="option"></label>
@@ -32,23 +33,22 @@
                         <option value="ml">ml</option>      
                     </select>
                 </div>
+                
                 <input type="button" id="add-btn" value="Adicionar">
                 
             </form>
             <div class="container main-list">
                 <ul id="lista-principal" class="lista-principal">
                     <ul class="item item-lista-fundo center">
-                        <li><input id="check-orange" type="checkbox" name="comprado"></li>
-                        <li id="orange">Orange</li>
-                        <li class="qnt">2 unidades</li> 
+                        <div class="left-list-content">
+                            <li><input id="check-orange" type="checkbox" name="comprado"></li>
+                            <li id="orange">Orange</li>
+                        </div>
+                        <div class="right-list-content"><li class="qnt">2 unidades</li> 
                         <li><button id="modify-orange" class="modify-item-btn"></button></li>
                         <li>
                             <button id="delete-orange" class="delete-item-btn"></button></li>          
-                        </ul> 
-                        
-                    </ul>
-                </ul>
-            </div>
+                        </ul>     
         </main>
 
         <footer class="rodape flex-item">
