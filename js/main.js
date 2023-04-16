@@ -31,7 +31,7 @@ function criarNovoItem (novoItem){
         <li id="qnt-${idItem}" class="qnt">${qntItem}</li>
         <li id="unit-type-${idItem}" class="unit-type">${unitItem}</li>
         <li><button id="modify-${idItem}" class="modify-item-btn modify-btn">Editar</button></li>
-        <li><button id="delete-${idItem}" class="delete-item-btn modify-btn">Remover</button></li>
+        <li><button id="delete-${idItem}" class="delete-item-btn modify-btn"></button></li>
     </div>
 </ul> 
 `;
@@ -71,10 +71,15 @@ function modifyItem() {
 function deleteItem () {
     let deleteVar = this.parentNode.parentNode.parentNode
     document.getElementById("lista-principal").removeChild(deleteVar)
+
+   /* let obj = lista_array.find(objeto => objeto.id ===  )*/
 }
 
 let lista = []
 lista = document.getElementsByClassName("item");
+
+let lista_array = []
+
 
 document.getElementById("add-btn").addEventListener("click", () =>{
     const idItem = Math.floor(Math.random()*1000)
@@ -88,4 +93,6 @@ document.getElementById("add-btn").addEventListener("click", () =>{
     document.getElementById("add-qnt").value = "";
     document.querySelector("#modify-" + idItem).addEventListener('click', modifyItem)
     document.querySelector("#delete-" + idItem).addEventListener('click', deleteItem)
+
+    lista_array.push(novoItem)
 })

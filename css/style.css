@@ -30,8 +30,8 @@ body {
 }
 
 header {
-    height: auto;
-    width: 100vw;
+    height:fit-content;
+    width: 10vh;
     padding-bottom: 15px;
 }
 
@@ -45,6 +45,7 @@ header {
 
 main {
     height: auto;
+    min-height: 80vh;
     width: 100vw;
     
 
@@ -257,10 +258,9 @@ li {
 }
 
 footer {
-    margin-top: auto;
+    
     height: 10vh;
     width: 100vw;
-    /*border: 3px solid black; */
 }
 
 @Media (min-width: 1024px){
@@ -272,10 +272,9 @@ footer {
         width: 90vw;
     
     }
- 
+
 
     footer {
-        height: auto;
         width: 90vw;
     }
 }
