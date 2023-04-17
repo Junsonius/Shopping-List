@@ -44,7 +44,13 @@ document.getElementById("lista-principal").appendChild(ul)
 function modifyItem() {
     let modify = this.parentNode.previousElementSibling.previousElementSibling;
     let updatedQnt = modify.id
+    let idCheckP1 = this.id.replace("modify-", "")
     console.log(updatedQnt.value)
+
+    if(this.id === "modify-", idCheckP1){
+        console.log("o arquivo não foi alterado")
+    }
+    //escolher e renderizar nova quantiadade de item
     document.getElementById(updatedQnt).innerHTML =`
     <div class="qnt-unit-container modify">
     
@@ -55,6 +61,8 @@ function modifyItem() {
     let updatedtype = modifytype.id
     console.log(updatedtype)
     
+
+    //escolher tipo de quantidade a ser renderizado
     switch (document.getElementById(updatedtype).innerHTML){
 
         case "kg":
@@ -127,6 +135,10 @@ function modifyItem() {
     </div>`
 
     }
+
+    this.innerHTML = `Ok`
+    let id = this.id.replace("modify-", "confirm-")
+    this.id = ("confirm-", id)
 }
 function deleteItem () {
 
