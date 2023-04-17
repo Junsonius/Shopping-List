@@ -44,31 +44,90 @@ document.getElementById("lista-principal").appendChild(ul)
 function modifyItem() {
     let modify = this.parentNode.previousElementSibling.previousElementSibling;
     let updatedQnt = modify.id
-    console.log(updatedQnt)
+    console.log(updatedQnt.value)
     document.getElementById(updatedQnt).innerHTML =`
     <div class="qnt-unit-container modify">
     
-    <input type="number" class="modify-items" name="add-qnt" value="${updatedQnt.innerHTML}">
+    <input type="number" class="modify-items" name="add-qnt" value="${modify.innerHTML}">
     
     `
-    let modifytype = this.parentNode;
+    let modifytype = this.parentNode.previousElementSibling;
     let updatedtype = modifytype.id
     console.log(updatedtype)
-    document.getElementById(updatedtype).innerHTML = `
-    <input type="number" class="modify-items" name="add-qnt" value="">
-    <label class="unitlabel" for="option"></label>
-    <select class="modify-items">
+    
+    switch (document.getElementById(updatedtype).innerHTML){
+
+        case "kg":
+        document.getElementById(updatedtype).innerHTML =
+        `
+        <label class="unitlabel" for="option"></label>
+        <select class="modify-items">
         <option value="un.">un.</option>
-        <option value= "kg">kg</option>     
+        <option selected value="kg">kg</option>     
         <option value="g">g</option>     
         <option value="l">l</option>        
-        <option value="ml">ml</option>      
+        <option value="ml">ml</option>
+        </select>
+    </div>`
+    break;
+
+    case "g":
+        document.getElementById(updatedtype).innerHTML =
+        `
+        <label class="unitlabel" for="option"></label>
+        <select class="modify-items">
+        <option value="un.">un.</option>
+        <option  value="kg">kg</option>     
+        <option selected value="g">g</option>     
+        <option value="l">l</option>        
+        <option value="ml">ml</option>
+        </select>
+    </div>`
+    break;
+    
+    case "l":
+        document.getElementById(updatedtype).innerHTML =
+        `
+        <label class="unitlabel" for="option"></label>
+        <select class="modify-items">
+        <option value="un.">un.</option>
+        <option  value="kg">kg</option>     
+        <option  value="g">g</option>     
+        <option selected value="l">l</option>        
+        <option value="ml">ml</option>
+        </select>
+    </div>` 
+    break;
+
+    case "ml":
+        document.getElementById(updatedtype).innerHTML =
+        `
+        <label class="unitlabel" for="option"></label>
+        <select class="modify-items">
+        <option value="un.">un.</option>
+        <option  value="kg">kg</option>     
+        <option  value="g">g</option>     
+        <option  value="l">l</option>        
+        <option  selected value="ml">ml</option>
+        </select>
+    </div>`
+    break;
+
+    default:
+        document.getElementById(updatedtype).innerHTML =
+        `
+        <label class="unitlabel" for="option"></label>
+        <select class="modify-items">
+        <option value="un.">un.</option>
+        <option  value="kg">kg</option>     
+        <option  value="g">g</option>     
+        <option  value="l">l</option>        
+        <option  value="ml">ml</option>
     </select>
-</div>
-    `
+    </div>`
 
+    }
 }
-
 function deleteItem () {
 
     //remove item do array
