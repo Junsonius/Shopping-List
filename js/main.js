@@ -6,11 +6,12 @@ function produto(id, item, qnt, unit) {
     this.comprado = false 
 }
 
-function adicionarItem (produto) {
-    lista.push(produto)
-}
-
 let ul
+let uniqueId = 0
+
+function generatedUniqueID() {
+    return uniqueId += 1
+}
 
 function criarNovoItem (novoItem){
     ul = document.createElement('ul');
@@ -47,7 +48,7 @@ function modifyItem() {
     document.getElementById(updatedQnt).innerHTML =`
     <div class="qnt-unit-container modify">
     
-    <input type="number" class="modify-items" name="add-qnt" value="">
+    <input type="number" class="modify-items" name="add-qnt" value="${updatedQnt.innerHTML}">
     
     `
     let modifytype = this.parentNode;
@@ -69,10 +70,14 @@ function modifyItem() {
 }
 
 function deleteItem () {
+
+    //remove item do array
+    let id = this.id.replace("delete-", "")
+    lista_array.splice(id-1, 1)
+
+    //remove item do array no html
     let deleteVar = this.parentNode.parentNode.parentNode
     document.getElementById("lista-principal").removeChild(deleteVar)
-
-   /* let obj = lista_array.find(objeto => objeto.id ===  )*/
 }
 
 let lista = []
@@ -82,7 +87,7 @@ let lista_array = []
 
 
 document.getElementById("add-btn").addEventListener("click", () =>{
-    const idItem = Math.floor(Math.random()*1000)
+    const idItem = generatedUniqueID()
     const nomeItem = document.getElementById("add-item").value;
     const qntItem = document.getElementById("add-qnt").value;
     const unitItem = document.getElementById("option").value;
@@ -95,4 +100,5 @@ document.getElementById("add-btn").addEventListener("click", () =>{
     document.querySelector("#delete-" + idItem).addEventListener('click', deleteItem)
 
     lista_array.push(novoItem)
+
 })

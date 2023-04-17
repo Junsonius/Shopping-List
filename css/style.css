@@ -30,8 +30,8 @@ body {
 }
 
 header {
-    height:fit-content;
-    width: 10vh;
+    height:10vh;
+    width: 100vw;
     padding-bottom: 15px;
 }
 
