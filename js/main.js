@@ -44,8 +44,6 @@ document.getElementById("lista-principal").appendChild(ul)
 function modifyItem() {
     let modify = this.parentNode.previousElementSibling.previousElementSibling;
     let updatedQnt = modify.id
-    
-    console.log(updatedQnt.value)
 
     
     if(this.id.includes('modify') === true) { 
@@ -53,13 +51,11 @@ function modifyItem() {
         document.getElementById(updatedQnt).innerHTML =`
         <div class="qnt-unit-container modify">
         
-        <input type="number" class="modify-items" name="add-qnt" value="${modify.innerHTML}">
+        <input type="number" id="modify-${modify.id}" class="modify-items" name="add-qnt" value="${modify.innerHTML}">
         
         `
         let modifytype = this.parentNode.previousElementSibling;
-        let updatedtype = modifytype.id
-        console.log(updatedtype)
-        
+        let updatedtype = modifytype.id        
 
         //escolher tipo de quantidade a ser renderizado
         switch (document.getElementById(updatedtype).innerHTML){
@@ -68,7 +64,7 @@ function modifyItem() {
             document.getElementById(updatedtype).innerHTML =
             `
             <label class="unitlabel" for="option"></label>
-            <select class="modify-items">
+            <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
             <option selected value="kg">kg</option>     
             <option value="g">g</option>     
@@ -82,7 +78,7 @@ function modifyItem() {
             document.getElementById(updatedtype).innerHTML =
             `
             <label class="unitlabel" for="option"></label>
-            <select class="modify-items">
+            <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
             <option  value="kg">kg</option>     
             <option selected value="g">g</option>     
@@ -96,7 +92,7 @@ function modifyItem() {
             document.getElementById(updatedtype).innerHTML =
             `
             <label class="unitlabel" for="option"></label>
-            <select class="modify-items">
+            <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
             <option  value="kg">kg</option>     
             <option  value="g">g</option>     
@@ -110,7 +106,7 @@ function modifyItem() {
             document.getElementById(updatedtype).innerHTML =
             `
             <label class="unitlabel" for="option"></label>
-            <select class="modify-items">
+            <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
             <option  value="kg">kg</option>     
             <option  value="g">g</option>     
@@ -124,7 +120,7 @@ function modifyItem() {
             document.getElementById(updatedtype).innerHTML =
             `
             <label class="unitlabel" for="option"></label>
-            <select class="modify-items">
+            <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
             <option  value="kg">kg</option>     
             <option  value="g">g</option>     
@@ -134,15 +130,33 @@ function modifyItem() {
         </div>`
 
         }
-
+        console.log(this.id)
         this.innerHTML = `Ok`
         let id = this.id.replace("modify-", "confirm-")
         this.id = ("confirm-", id)
-        let idCheckP1 = this.id.replace("modify-", "")
+        console.log(id)
+    } else {
+        let id = this.id.replace("confirm-", "")
+        let alterList = lista_array.find(value => value.id == id)
+        let idsearch = modify.parentNode
+        //alteração de quantidade
+        alterList.qnt = document.getElementById("modify-" + modify.id).value
+
+        //alteração de unidade
+        alterList.unit = document.getElementById("modify-type-" + modify.id).value
+
+        //atualização na DOM
+
+        document.getElementById("modify-" + modify.id).parentNode.parentNode.parentNode.innerHTML = `
+        <li id="qnt-${id}" class="qnt">${alterList.qnt}</li>
+        <li id="unit-type-${id}" class="unit-type">${alterList.unit}</li>
+        <li><button id="modify-${id}" class="modify-item-btn modify-btn">Editar</button></li>
+        <li><button id="delete-${id}" class="delete-item-btn modify-btn"></button></li>
+        `
+        document.querySelector("#modify-" + id).addEventListener('click', modifyItem)
+        document.querySelector("#delete-" + id).addEventListener('click', deleteItem)
     }
 }
-
-
 
 function deleteItem () {
 
