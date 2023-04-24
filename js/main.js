@@ -45,9 +45,10 @@ function modifyItem() {
     let modify = this.parentNode.previousElementSibling.previousElementSibling;
     let updatedQnt = modify.id
 
-    
+    //if para idenficar se botão deva entrar para modificar ou confirmar modificações
     if(this.id.includes('modify') === true) { 
-        //escolher e renderizar nova quantiadade de item
+
+        //escolher e renderizar menu de edição de quantidade
         document.getElementById(updatedQnt).innerHTML =`
         <div class="qnt-unit-container modify">
         
@@ -57,12 +58,11 @@ function modifyItem() {
         let modifytype = this.parentNode.previousElementSibling;
         let updatedtype = modifytype.id        
 
-        //escolher tipo de quantidade a ser renderizado
+        //escolher tipo de unidade a ser renderizado
         switch (document.getElementById(updatedtype).innerHTML){
 
             case "kg":
-            document.getElementById(updatedtype).innerHTML =
-            `
+            document.getElementById(updatedtype).innerHTML =`
             <label class="unitlabel" for="option"></label>
             <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
@@ -75,8 +75,7 @@ function modifyItem() {
         break;
 
         case "g":
-            document.getElementById(updatedtype).innerHTML =
-            `
+            document.getElementById(updatedtype).innerHTML =`
             <label class="unitlabel" for="option"></label>
             <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
@@ -89,8 +88,7 @@ function modifyItem() {
         break;
         
         case "l":
-            document.getElementById(updatedtype).innerHTML =
-            `
+            document.getElementById(updatedtype).innerHTML =`
             <label class="unitlabel" for="option"></label>
             <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
@@ -103,8 +101,7 @@ function modifyItem() {
         break;
 
         case "ml":
-            document.getElementById(updatedtype).innerHTML =
-            `
+            document.getElementById(updatedtype).innerHTML =`
             <label class="unitlabel" for="option"></label>
             <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
@@ -116,9 +113,9 @@ function modifyItem() {
         </div>`
         break;
 
+        //default = un.
         default:
-            document.getElementById(updatedtype).innerHTML =
-            `
+            document.getElementById(updatedtype).innerHTML =`
             <label class="unitlabel" for="option"></label>
             <select class="modify-items" id="modify-type-${modify.id}">
             <option value="un.">un.</option>
@@ -130,29 +127,31 @@ function modifyItem() {
         </div>`
 
         }
-        console.log(this.id)
         this.innerHTML = `Ok`
+
+        //alterar botão editar para confirmar/ok
         let id = this.id.replace("modify-", "confirm-")
         this.id = ("confirm-", id)
-        console.log(id)
     } else {
         let id = this.id.replace("confirm-", "")
         let alterList = lista_array.find(value => value.id == id)
         let idsearch = modify.parentNode
-        //alteração de quantidade
+
+        //alteração de quantidade no array
         alterList.qnt = document.getElementById("modify-" + modify.id).value
 
-        //alteração de unidade
+        //alteração de tipo de unidade no array
         alterList.unit = document.getElementById("modify-type-" + modify.id).value
 
         //atualização na DOM
-
         document.getElementById("modify-" + modify.id).parentNode.parentNode.parentNode.innerHTML = `
         <li id="qnt-${id}" class="qnt">${alterList.qnt}</li>
         <li id="unit-type-${id}" class="unit-type">${alterList.unit}</li>
         <li><button id="modify-${id}" class="modify-item-btn modify-btn">Editar</button></li>
         <li><button id="delete-${id}" class="delete-item-btn modify-btn"></button></li>
         `
+
+        //adicionando event listener para funções editar e remover
         document.querySelector("#modify-" + id).addEventListener('click', modifyItem)
         document.querySelector("#delete-" + id).addEventListener('click', deleteItem)
     }
@@ -164,17 +163,14 @@ function deleteItem () {
     let id = this.id.replace("delete-", "")
     lista_array.splice(id-1, 1)
 
-    //remove item do array no html
+    //remove item do array na DOM
     let deleteVar = this.parentNode.parentNode.parentNode
     document.getElementById("lista-principal").removeChild(deleteVar)
 }
 
-let lista = []
-lista = document.getElementsByClassName("item");
-
 let lista_array = []
 
-
+//event listener para adicionar o produto na DOM e array
 document.getElementById("add-btn").addEventListener("click", () =>{
     const idItem = generatedUniqueID()
     const nomeItem = document.getElementById("add-item").value;
@@ -185,6 +181,8 @@ document.getElementById("add-btn").addEventListener("click", () =>{
     criarNovoItem(novoItem)
     document.getElementById("add-item").value = "";
     document.getElementById("add-qnt").value = "";
+
+    //adicionando event listener para funções editar e remover
     document.querySelector("#modify-" + idItem).addEventListener('click', modifyItem)
     document.querySelector("#delete-" + idItem).addEventListener('click', deleteItem)
 
