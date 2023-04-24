@@ -44,102 +44,106 @@ document.getElementById("lista-principal").appendChild(ul)
 function modifyItem() {
     let modify = this.parentNode.previousElementSibling.previousElementSibling;
     let updatedQnt = modify.id
-    let idCheckP1 = this.id.replace("modify-", "")
+    
     console.log(updatedQnt.value)
 
-    if(this.id === "modify-", idCheckP1){
-        console.log("o arquivo não foi alterado")
+    
+    if(this.id.includes('modify') === true) { 
+        //escolher e renderizar nova quantiadade de item
+        document.getElementById(updatedQnt).innerHTML =`
+        <div class="qnt-unit-container modify">
+        
+        <input type="number" class="modify-items" name="add-qnt" value="${modify.innerHTML}">
+        
+        `
+        let modifytype = this.parentNode.previousElementSibling;
+        let updatedtype = modifytype.id
+        console.log(updatedtype)
+        
+
+        //escolher tipo de quantidade a ser renderizado
+        switch (document.getElementById(updatedtype).innerHTML){
+
+            case "kg":
+            document.getElementById(updatedtype).innerHTML =
+            `
+            <label class="unitlabel" for="option"></label>
+            <select class="modify-items">
+            <option value="un.">un.</option>
+            <option selected value="kg">kg</option>     
+            <option value="g">g</option>     
+            <option value="l">l</option>        
+            <option value="ml">ml</option>
+            </select>
+        </div>`
+        break;
+
+        case "g":
+            document.getElementById(updatedtype).innerHTML =
+            `
+            <label class="unitlabel" for="option"></label>
+            <select class="modify-items">
+            <option value="un.">un.</option>
+            <option  value="kg">kg</option>     
+            <option selected value="g">g</option>     
+            <option value="l">l</option>        
+            <option value="ml">ml</option>
+            </select>
+        </div>`
+        break;
+        
+        case "l":
+            document.getElementById(updatedtype).innerHTML =
+            `
+            <label class="unitlabel" for="option"></label>
+            <select class="modify-items">
+            <option value="un.">un.</option>
+            <option  value="kg">kg</option>     
+            <option  value="g">g</option>     
+            <option selected value="l">l</option>        
+            <option value="ml">ml</option>
+            </select>
+        </div>` 
+        break;
+
+        case "ml":
+            document.getElementById(updatedtype).innerHTML =
+            `
+            <label class="unitlabel" for="option"></label>
+            <select class="modify-items">
+            <option value="un.">un.</option>
+            <option  value="kg">kg</option>     
+            <option  value="g">g</option>     
+            <option  value="l">l</option>        
+            <option  selected value="ml">ml</option>
+            </select>
+        </div>`
+        break;
+
+        default:
+            document.getElementById(updatedtype).innerHTML =
+            `
+            <label class="unitlabel" for="option"></label>
+            <select class="modify-items">
+            <option value="un.">un.</option>
+            <option  value="kg">kg</option>     
+            <option  value="g">g</option>     
+            <option  value="l">l</option>        
+            <option  value="ml">ml</option>
+        </select>
+        </div>`
+
+        }
+
+        this.innerHTML = `Ok`
+        let id = this.id.replace("modify-", "confirm-")
+        this.id = ("confirm-", id)
+        let idCheckP1 = this.id.replace("modify-", "")
     }
-    //escolher e renderizar nova quantiadade de item
-    document.getElementById(updatedQnt).innerHTML =`
-    <div class="qnt-unit-container modify">
-    
-    <input type="number" class="modify-items" name="add-qnt" value="${modify.innerHTML}">
-    
-    `
-    let modifytype = this.parentNode.previousElementSibling;
-    let updatedtype = modifytype.id
-    console.log(updatedtype)
-    
-
-    //escolher tipo de quantidade a ser renderizado
-    switch (document.getElementById(updatedtype).innerHTML){
-
-        case "kg":
-        document.getElementById(updatedtype).innerHTML =
-        `
-        <label class="unitlabel" for="option"></label>
-        <select class="modify-items">
-        <option value="un.">un.</option>
-        <option selected value="kg">kg</option>     
-        <option value="g">g</option>     
-        <option value="l">l</option>        
-        <option value="ml">ml</option>
-        </select>
-    </div>`
-    break;
-
-    case "g":
-        document.getElementById(updatedtype).innerHTML =
-        `
-        <label class="unitlabel" for="option"></label>
-        <select class="modify-items">
-        <option value="un.">un.</option>
-        <option  value="kg">kg</option>     
-        <option selected value="g">g</option>     
-        <option value="l">l</option>        
-        <option value="ml">ml</option>
-        </select>
-    </div>`
-    break;
-    
-    case "l":
-        document.getElementById(updatedtype).innerHTML =
-        `
-        <label class="unitlabel" for="option"></label>
-        <select class="modify-items">
-        <option value="un.">un.</option>
-        <option  value="kg">kg</option>     
-        <option  value="g">g</option>     
-        <option selected value="l">l</option>        
-        <option value="ml">ml</option>
-        </select>
-    </div>` 
-    break;
-
-    case "ml":
-        document.getElementById(updatedtype).innerHTML =
-        `
-        <label class="unitlabel" for="option"></label>
-        <select class="modify-items">
-        <option value="un.">un.</option>
-        <option  value="kg">kg</option>     
-        <option  value="g">g</option>     
-        <option  value="l">l</option>        
-        <option  selected value="ml">ml</option>
-        </select>
-    </div>`
-    break;
-
-    default:
-        document.getElementById(updatedtype).innerHTML =
-        `
-        <label class="unitlabel" for="option"></label>
-        <select class="modify-items">
-        <option value="un.">un.</option>
-        <option  value="kg">kg</option>     
-        <option  value="g">g</option>     
-        <option  value="l">l</option>        
-        <option  value="ml">ml</option>
-    </select>
-    </div>`
-
-    }
-
-    this.innerHTML = `Ok`
-    let id = this.id.replace("modify-", "confirm-")
-    this.id = ("confirm-", id)
 }
+
+
+
 function deleteItem () {
 
     //remove item do array
