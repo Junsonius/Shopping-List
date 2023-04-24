@@ -9,7 +9,7 @@ function produto(id, item, qnt, unit) {
 let ul
 let uniqueId = 0
 
-function generatedUniqueID() {
+function generateUniqueID() {
     return uniqueId += 1
 }
 
@@ -129,7 +129,7 @@ function modifyItem() {
         }
         this.innerHTML = `Ok`
 
-        //alterar botão editar para confirmar/ok
+        //alteração do ID botão editar para confirmar
         let id = this.id.replace("modify-", "confirm-")
         this.id = ("confirm-", id)
     } else {
@@ -171,21 +171,33 @@ function deleteItem () {
 let lista_array = []
 
 //event listener para adicionar o produto na DOM e array
-document.getElementById("add-btn").addEventListener("click", () =>{
-    const idItem = generatedUniqueID()
-    const nomeItem = document.getElementById("add-item").value;
-    const qntItem = document.getElementById("add-qnt").value;
-    const unitItem = document.getElementById("option").value;
-    const novoItem = new produto(idItem, nomeItem, qntItem, unitItem);
-    
-    criarNovoItem(novoItem)
-    document.getElementById("add-item").value = "";
-    document.getElementById("add-qnt").value = "";
+let adicionarItem = document.getElementById("add-btn").addEventListener("click", () =>{
 
-    //adicionando event listener para funções editar e remover
-    document.querySelector("#modify-" + idItem).addEventListener('click', modifyItem)
-    document.querySelector("#delete-" + idItem).addEventListener('click', deleteItem)
+    if (document.getElementById("add-item").value === "" || document.getElementById("add-qnt").value === "") {
+        
+        if(document.getElementById("empty-form") === null){document.getElementById("item-form").insertAdjacentHTML("beforeend", `
+        <p id="empty-form">Favor preencher todos os campos</p>
+        `)
+    }
 
-    lista_array.push(novoItem)
+    } else{
+        if(document.getElementById("empty-form") != null){
+        document.getElementById("empty-form").remove()
+        }
+        const idItem = generateUniqueID()
+        const nomeItem = document.getElementById("add-item").value;
+        const qntItem = document.getElementById("add-qnt").value;
+        const unitItem = document.getElementById("option").value;
+        const novoItem = new produto(idItem, nomeItem, qntItem, unitItem);
+        
+        criarNovoItem(novoItem)
+        document.getElementById("add-item").value = "";
+        document.getElementById("add-qnt").value = "";
 
+        //adicionando event listener para funções editar e remover
+        document.querySelector("#modify-" + idItem).addEventListener('click', modifyItem)
+        document.querySelector("#delete-" + idItem).addEventListener('click', deleteItem)
+
+        lista_array.push(novoItem)
+    }
 })
