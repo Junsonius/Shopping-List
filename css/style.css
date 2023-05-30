@@ -29,7 +29,7 @@ body {
 }
 
 header {
-    height:10vh;
+    height:15vh;
     width: 100vw;
     padding-bottom: 15px;
 }
@@ -138,7 +138,7 @@ select{
 p, li{
     
     color: var(--cor-texto);
-    font-size: 20px;
+    font-size: 16px;
     
 }
 
@@ -154,6 +154,8 @@ li {
     align-self:auto;
     align-items: center;
     justify-content: space-between;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   
 }
 
@@ -172,8 +174,8 @@ li {
 }
 
 .modify{
-   display: flex;
-   align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .modify-items {
@@ -219,6 +221,8 @@ li {
 .left-list-content {
     display: flex;
     align-items: center;
+    width: 40%;
+
 }
 
 .right-list-content {

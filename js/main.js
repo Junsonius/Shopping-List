@@ -135,7 +135,6 @@ function modifyItem() {
     } else {
         let id = this.id.replace("confirm-", "")
         let alterList = lista_array.find(value => value.id == id)
-        let idsearch = modify.parentNode
 
         //alteração de quantidade no array
         alterList.qnt = document.getElementById("modify-" + modify.id).value
